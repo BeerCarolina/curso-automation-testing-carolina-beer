@@ -1,23 +1,61 @@
-# Pre-Entrega Project - Automation Testing
+# Proyecto Final: Automacion de Pruebas (UI & API)
 
-## Descripción
-Este proyecto contiene la automatización de pruebas e interactividad para el sitio de práctica [SauceDemo](https://www.saucedemo.com/) utilizando Python, Selenium WebDriver y Pytest.
+Este repositorio contiene la solucion completa para la pre-entrega y proyecto final de automatizacion de testing, implementando pruebas automatizadas de interfaz de usuario (UI) mediante el patron Page Object Model (POM) y pruebas de servicios web (API Testing), utilizando Python y PyTest.
 
-## Tecnologías Utilizadas
-* **Lenguaje:** Python 
-* **Framework de Testing:** Pytest
-* **Automatización Web:** Selenium WebDriver
-* **Reportes:** Pytest-HTML
-* **Control de Versiones:** Git & GitHub
+## Tecnologias y Herramientas Utilizadas
 
+* Lenguaje: Python
+* Framework de Testing: PyTest y PyTest-HTML (Reportes detallados)
+* Automatizacion Web: Selenium WebDriver 4 (Manejo nativo y esperas explicitas)
+* Automatizacion de APIs: Libreria requests
+* Arquitectura: Page Object Model (POM) con pruebas data-driven (JSON)
+* Monitoreo y Reportes: Logging nativo de Python y captura automatica de pantallas ante fallas.
 
-## Casos de Prueba Automatizados
+## Estructura del Proyecto
 
-Login Exitoso: Validación de navegación a /inventory.html y verificación del logo Swag Labs.
+pre-entrega-automation-testing/
+│
+├── data/
+│   └── datos_login.json         # Datos externos para pruebas parametrizadas
+├── logs/
+│   └── ejecucion.log            # Registro detallado de la ejecucion de los tests
+├── pages/
+│   ├── inventory_page.py        # Page Object para la vista de inventario / carrito
+│   └── login_page.py            # Page Object para la vista de autenticacion
+├── reports/
+│   ├── assets/                  # Capturas de pantalla automaticas en caso de fallo
+│   └── reporte.html             # Reporte interactivo HTML de la ejecucion
+├── test/
+│   ├── test_api_reqres.py       # Pruebas de API (GET, POST, DELETE)
+│   └── test_ui_saucedemo.py     # Pruebas de UI parametrizadas y flujos de carrito
+├── utils/
+│   └── funciones.py             # Funciones auxiliares reutilizables
+├── conftest.py                  # Configuracion global de fixtures, navegador y hooks de pytest
+├── pytest.ini                   # Configuracion del framework pytest
+└── README.md                    # Documentacion del proyecto
 
-Verificación del Catálogo: Comprobación del título de la página, presencia de elementos clave de la interfaz y lectura del primer producto disponible.
+## Instalacion, Configuracion y Ejecucion
 
-Interacción con Carrito: Agregar un producto al carrito, validar el contador del ícono y verificar el ítem en la vista de carrito.
+### 1. Instalacion de dependencias
+Abre tu terminal en la raiz del proyecto e instala las librerias necesarias ejecutando:
+
+```powershell
+pip install selenium pytest pytest-html requests
+
+## 2. Ejecucion de las Pruebas
+
+Para correr todas las pruebas (tanto UI como API) de manera secuencial y generar automaticamente el reporte HTML interactivo, ejecuta el siguiente comando:
+
+`powershell
+python -m pytest -v --html=reports/reporte.html
+
+Una vez finalizada la ejecucion, podras encontrar:
+
+El reporte HTML en reports/reporte.html.
+
+El registro de logs en logs/ejecucion.log.
+
+Las capturas de pantalla de evidencia (en caso de fallas) dentro de reports/assets/.
 
 ## 3. Cómo Instalar las Dependencias
  Clonar el repositorio localmente:
