@@ -13,7 +13,7 @@ Este repositorio contiene la solucion completa para la pre-entrega y proyecto fi
 
 ## Estructura del Proyecto
 
-pre-entrega-automation-testing/
+entrega-final-automation
 │
 ├── data/
 │   └── datos_login.json         # Datos externos para pruebas parametrizadas

@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-# Configuración del sistema de Logging
+
 os.makedirs("logs", exist_ok=True)
 logging.basicConfig(
     filename="logs/ejecucion.log",
@@ -23,7 +23,7 @@ def driver(request):
     driver.maximize_window()
     driver.get("https://www.saucedemo.com/")
     
-    # Doble blindaje: Esperar a que el DOM esté completo y el input de usuario visible
+    # Espera a que el DOM esté completo y el input de usuario visible
     try:
         WebDriverWait(driver, 15).until(
             lambda d: d.execute_script("return document.readyState") == "complete"

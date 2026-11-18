@@ -5,14 +5,14 @@ from selenium.webdriver.support import expected_conditions as EC
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 20) # Aumentamos a 20s para blindarlo contra la congestión del último test
+        self.wait = WebDriverWait(driver, 20) 
         self.username_input = (By.ID, "user-name")
         self.password_input = (By.ID, "password")
         self.login_button = (By.ID, "login-button")
         self.error_message = (By.CSS_SELECTOR, "[data-test='error']")
 
     def ingresar_usuario(self, username):
-        # Primero esperamos a que el body de la página esté cargado para evitar falsos timeouts en ejecuciones rápidas
+        
         self.wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
         
         campo = self.wait.until(EC.presence_of_element_located(self.username_input))

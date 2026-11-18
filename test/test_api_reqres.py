@@ -8,7 +8,6 @@ def test_api_get_users():
     logging.info("Ejecutando test de API: GET listado de usuarios")
     response = requests.get(f"{BASE_URL}/users?page=2")
     
-    # Validar código de estado HTTP
     assert response.status_code == 200, f"Se esperaba 200, se obtuvo {response.status_code}"
     
    
@@ -26,7 +25,7 @@ def test_api_post_create_user():
     }
     response = requests.post(f"{BASE_URL}/users", json=payload)
     
-    # ReqRes responde 201 Created para POST exitoso
+    
     assert response.status_code == 201, f"Se esperaba 201, se obtuvo {response.status_code}"
     
     # Validar contenido de la respuesta
@@ -41,6 +40,6 @@ def test_api_delete_user():
     logging.info("Ejecutando test de API: DELETE eliminar usuario")
     response = requests.delete(f"{BASE_URL}/users/2")
     
-    # ReqRes responde 204 No Content para DELETE exitoso
+    
     assert response.status_code == 204, f"Se esperaba 204, se obtuvo {response.status_code}"
     logging.info("Test DELETE de usuario completado con éxito")
